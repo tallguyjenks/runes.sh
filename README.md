@@ -31,4 +31,5 @@ Because its freakin awesome!
 # TODO
 
 - [ ] allow for reading files into standard input and operating on each line of a file to translate a whole file as output. basically *cat* a file in and output would be the same as *cat* but only runes
-
+- [ ] figure out how to retain functionality but remove bash substitution to be more POSIX compliant and portable
+- [ ] figure out which terminal emulators support UTF-8 and which ones that dont and update README with that info in a table
