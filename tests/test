@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+echo "rune operates on single word input"
+./runes "test"
+echo "rune operates on multi word input"
+./runes "testing multi line strings"
+echo "echo single word into runes"
+echo "test" | ./runes
+echo "echo multi word input into runes"
+echo "testing multi word input" | ./runes
+echo "testing runes operating on a file should return 8 lines"
+./runes ./tests/sampledata
+echo "testing cat pipe file into runes should return 8 lines"
+cat ./tests/sampledata | ./runes
