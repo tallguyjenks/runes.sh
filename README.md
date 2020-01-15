@@ -1,5 +1,7 @@
 # runes.sh
 
+![Gif preview](./assets/preview.gif)
+
 ## Who?
 
 For anyone
