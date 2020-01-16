@@ -31,7 +31,7 @@ Because its freakin awesome!
 
 ## Collaboration | ᚲᛟᛚᛚᚨᛒᛟᚱᚨᛏᛁᛟᚾ
 
-Got an idea that can help? open an issue ortake on a task under the *TODO* section.
+Got an idea that can help? open an issue or Pull request.
 
 ## Testing | ᛏᛖᛋᛏᛁᛜ
 
