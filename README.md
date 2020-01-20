@@ -29,18 +29,9 @@ Because its freakin awesome!
 >
 > --- Bryan 2020
 
-# TODO | ᛏᛟᛞᛟ
-
-- [X] allow for reading files into standard input and operating on each line of a file to translate a whole file as output. basically *cat* a file in and output would be the same as *cat* but only runes
-- [ ] files can be read by this script now, but using cat and piping contents into it still only returns the first line.
-- [X] script is slow with operation on entire file.
-	+ this was because i operated on line by line, at file size can just straight cat through the the sed pipes and it works fast
-- [X] figure out how to retain functionality but remove bash substitution to be more POSIX compliant and portable
-- [ ] figure out which terminal emulators support UTF-8 and which ones that dont and update README with that info in a table
-
 ## Collaboration | ᚲᛟᛚᛚᚨᛒᛟᚱᚨᛏᛁᛟᚾ
 
-Got an idea that can help? open an issue ortake on a task under the *TODO* section.
+Got an idea that can help? open an issue or Pull request.
 
 ## Testing | ᛏᛖᛋᛏᛁᛜ
 

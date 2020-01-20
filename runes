@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-set -o posix
 
 if [ -e "$1" ]; then
 	cat $1 |
