@@ -1,6 +1,6 @@
 # runes.sh | ᚱᚢᚾᛖᛋ.ᛋᚻ
 
-![Gif preview](./assets/preview.gif)
+![Picture Preview](./img/runesPreview.png)
 
 ## Who? | ᚹᚻᛟ?
 
