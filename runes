@@ -34,10 +34,10 @@ elif [ -z "$1" ]
 	then read RAWTEXT
 elif [ "$1" ]
 	then RAWTEXT="$1"
-elif [ -z "$1" ] && [ -z $RAWTEXT ]
+elif [ -z "$1" ] && [ -z "$RAWTEXT" ]
 	then echo "No text or file given" && exit
 fi
 
-echo $RAWTEXT | translate
+echo "$RAWTEXT" | translate
 
 exit
