@@ -1,43 +1,56 @@
 #!/usr/bin/env sh
 
+# Set up the actual work of translation
 translate(){
-	tr '[:upper:]' '[:lower:]' |
-	sed 's/th/ᚦ/g;
-	s/ng/ᛜ/g;
-	s/[kc]/ᚲ/g;
-	s/[vw]/ᚹ/g;
-	s/[jy]/ᛃ/g;
-	s/a/ᚨ/g;
-	s/b/ᛒ/g;
-	s/d/ᛞ/g;
-	s/e/ᛖ/g;
-	s/f/ᚠ/g;
-	s/g/ᚷ/g;
-	s/h/ᚻ/g;
-	s/i/ᛁ/g;
-	s/l/ᛚ/g;
-	s/m/ᛗ/g;
-	s/n/ᚾ/g;
-	s/o/ᛟ/g;
-	s/p/ᛈ/g;
-	s/r/ᚱ/g;
-	s/s/ᛋ/g;
-	s/t/ᛏ/g;
-	s/u/ᚢ/g;
-	s/z/ᛉ/g'
+    tr '[:upper:]' '[:lower:]' |
+    sed 's/th/ᚦ/g;
+        s/ng/ᛜ/g;
+        s/[kc]/ᚲ/g;
+        s/[vw]/ᚹ/g;
+        s/[jy]/ᛃ/g;
+        s/a/ᚨ/g;
+        s/b/ᛒ/g;
+        s/d/ᛞ/g;
+        s/e/ᛖ/g;
+        s/f/ᚠ/g;
+        s/g/ᚷ/g;
+        s/h/ᚻ/g;
+        s/i/ᛁ/g;
+        s/l/ᛚ/g;
+        s/m/ᛗ/g;
+        s/n/ᚾ/g;
+        s/o/ᛟ/g;
+        s/p/ᛈ/g;
+        s/r/ᚱ/g;
+        s/s/ᛋ/g;
+        s/t/ᛏ/g;
+        s/u/ᚢ/g;
+        s/z/ᛉ/g'
 }
 
-if [ -e "$1" ]; then
-		cat $1 | translate
-		exit
-elif [ -z "$1" ]
-	then read RAWTEXT
-elif [ "$1" ]
-	then RAWTEXT="$1"
-elif [ -z "$1" ] && [ -z "$RAWTEXT" ]
-	then echo "No text or file given" && exit
-fi
+# Interactive mode to read line after line of user
+# supplied standard input, or will allow piping strings in
+# or cat a whole file and pipe that in.
+while read line
+do
+  echo "$line" | translate
+done < "${1:-/dev/stdin}"
+exit 0
 
-echo "$RAWTEXT" | translate
-
-exit
+## If file exists then cat into function
+#if [ -e "$1" ]; then
+#        cat "$1" | translate
+#        exit 0
+## If stdin is null then wait and read user input
+#elif [ -z "$1" ]
+#    then read RAWTEXT
+## If user provided input into stdin then collect it
+#elif [ "$1" ]
+#    then RAWTEXT="$1"
+#elif [ -e "$1" ] && [ -z "$RAWTEXT" ]
+#    then echo "No text or file given" && exit
+#fi
+#
+#echo "$RAWTEXT" | translate
+#
+#exit
