@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 
 # Set up the actual work of translation
-translate(){
-    tr '[:upper:]' '[:lower:]' |
+translate()
+{
+    echo "$1" | tr '[:upper:]' '[:lower:]' |
     sed 's/th/ᚦ/g;
         s/ng/ᛜ/g;
         s/[kc]/ᚲ/g;
@@ -31,24 +32,28 @@ translate(){
 
 # If first argument is a file then translate and output
 # the entire files contents
-if [ -e "$1" ]; then
-    while read line
+if [ -f "$1" ]; then
+    while read -r line
     do
-      echo "$line" | translate
+      translate "$line"
     done < "$1"
     exit 0
 fi
 
 # If input is standard input like echo "text" it translates
 if [ -n "$1" ]; then
-    echo "$1" | translate && exit 0
+    for word in "$@"
+    do
+        translate "$word" | tr "\n" " "
+    done
+    echo && exit 0
 fi
 
 # Interactive mode to read line after line of user
 # supplied standard input, or will allow piping strings in
 # or cat a whole file and pipe that in.
-while read line
+while read -r line
 do
-  echo "$line" | translate
-done < "${1:-/dev/stdin}"
+  translate "$line"
+done < '/dev/stdin'
 exit 0
